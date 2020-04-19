@@ -58,14 +58,5 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {},
     },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        custom: {
-          families: ["M PLUS Rounded 1c"],
-          urls: ["/fonts/fonts.css"],
-        },
-      },
-    }
   ],
 };

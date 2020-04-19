@@ -1,4 +1,4 @@
-import React, {useState, useRef, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import {useLocation} from '@reach/router';
 import styled from '@emotion/styled';
 import {navigate, graphql, useStaticQuery} from 'gatsby';
@@ -77,15 +77,13 @@ const SharePageButton: React.FC<{}> = () => {
 
 const NavigationHeader: React.FC<{}> = () => {
   const {sitePlugin} = useStaticQuery(siteQuery);
-
+  const {pathname} = useLocation();
   const [colorMode] = useColorMode();
+
   const fill = colorMode === 'dark' ? '#fff' : '#000';
   const {rootPath, basePath} = sitePlugin.pluginOptions;
 
-  const {pathname} = location;
   const isHomePage = pathname === rootPath || pathname === basePath;
-
-  const isFromHome = useRef(isHomePage);
 
   const goBack = useCallback(() => navigate(rootPath || basePath), [
     rootPath,

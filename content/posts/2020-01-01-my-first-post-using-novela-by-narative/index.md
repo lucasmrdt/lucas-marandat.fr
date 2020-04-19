@@ -1,6 +1,6 @@
 ---
 title: My first post using Novela by Narative
-author: Dennis Brotzky
+author: Lucas Marandat
 date: 2019-04-30T00:00:00.000Z
 excerpt: With the growing community interest in Gatsby, we hope to create more
   resources that make it easier for anyone to grasp the power of this incredible

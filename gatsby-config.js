@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Lucas Marandat',
-    name: 'Narative',
+    name: 'Lucas Marandat',
     siteUrl: 'https://novela.narative.co',
     description: 'This is my description that will be used in the meta tags and important for search results',
     hero: {
@@ -49,6 +49,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {},
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-96109572-2"
+      },
     },
   ],
 };

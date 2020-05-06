@@ -9,25 +9,17 @@ module.exports = {
       maxWidth: 652,
     },
     social: [{
-        name: 'twitter',
-        url: 'https://twitter.com/narative',
+        name: 'linkedin',
+        url: 'https://www.linkedin.com/in/lucasmrdt/',
       },
       {
         name: 'github',
-        url: 'https://github.com/narative',
+        url: 'https://github.com/lucasmrdt',
       },
       {
-        name: 'instagram',
-        url: 'https://instagram.com/narative.co',
-      },
-      {
-        name: 'linkedin',
-        url: 'https://www.linkedin.com/company/narative/',
-      },
-      {
-        name: 'dribbble',
-        url: 'https://dribbble.com/narativestudio',
-      },
+        name: 'hackerrank',
+        url: 'https://www.hackerrank.com/lucas_mrdt',
+      }
     ],
   },
   plugins: [{

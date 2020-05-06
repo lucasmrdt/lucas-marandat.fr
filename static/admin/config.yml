@@ -38,7 +38,6 @@ collections:
         }
       - {label: 'Excerpt', name: 'excerpt', widget: 'string', required: false}
       - {label: 'Hero', name: 'hero', widget: 'image'}
-      - {label: 'Preview', name: 'preview', widget: 'image'}
       - {label: 'Body', name: 'body', widget: 'markdown'}
   - name: 'authors'
     label: 'Authors'

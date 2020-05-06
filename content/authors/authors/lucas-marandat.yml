@@ -1,11 +1,8 @@
 name: Lucas Marandat
-bio: Written by You. This is where your author bio lives. Share your work,
-  yourjoys and of course, your Twitter handle.
+bio: 3rd year IT student @Epitech, loving AI 🤖
 featured: true
 avatar: avatars/me.jpeg
 social:
-  - url: https://unsplash.com
-  - url: https://stackoverflow.com
-  - url: https://github.com
-  - url: https://github.com
-  - url: https://github.com
+  - url: https://www.linkedin.com/in/lucasmrdt/
+  - url: https://github.com/lucasmrdt
+  - url: https://www.hackerrank.com/lucas_mrdt

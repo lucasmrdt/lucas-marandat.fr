@@ -11,9 +11,9 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 module.exports = {
   siteMetadata: {
     title: 'Lucas Marandat',
-    name: 'Lucas Marandat',
+    name: 'Lucas Marandat Blog',
     siteUrl,
-    description: 'Lucas Marandat personnal blog.',
+    description: 'Follow my projects and see how I made them!',
     hero: {
       heading: 'Lucas Marandat',
       maxWidth: 652,

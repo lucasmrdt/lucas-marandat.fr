@@ -21,12 +21,18 @@ _From [ProjectEuler.net](https://projecteuler.net/)_
 
 I've learned coding by solving algorithmic problems and I always like to solve them. Furthermore, by solving them, I'm increasing my algorithmic skills and enhancing my mathematical knowledge. So "Project Euler" seems to me to be a good challenge!
 
+## 📖 Summary:
+
+[1️⃣ Multiples of 3 and 5](#1️⃣-multiples-of-3-and-5)
+
 ## 🧩 Lets go!
 
 I've not done all of them, refer to the title to see my progress `.../254`.
 For some of them, I helped myself from the internet.
 
-### 1️⃣ "Multiples of 3 and 5"
+<a name="abcde"></a>
+
+## 1️⃣ Multiples of 3 and 5
 
 #### Instruction ([here](https://www.hackerrank.com/contests/projecteuler/challenges/euler001))
 
@@ -63,6 +69,18 @@ int main() {
   return 0;
 }
 ```
+
+#### Explanation
+
+<br />
+
+Arithmetic sum formula (from [wikipedia](https://en.wikipedia.org/wiki/Summation)):
+
+$a^2 + b^2 = c^2$
+
+$$
+a^2 + b^2 = c^2
+$$
 
 ## 📚 Resources
 

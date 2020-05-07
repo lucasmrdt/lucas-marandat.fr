@@ -107,6 +107,14 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-offline'
-    }
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [{
+          resolve: 'gatsby-remark-autolink-headers',
+        }],
+      },
+    },
   ],
 };

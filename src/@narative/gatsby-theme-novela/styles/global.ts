@@ -1,6 +1,6 @@
 import {css} from '@emotion/core';
 
-export const globalStyles = css`
+export const globalStyles = (isDark: boolean) => css`
   /**
    * Thanks to Benjamin De Cock
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
@@ -107,6 +107,7 @@ export const globalStyles = css`
     font-family: monospace;
     border-radius: 5px;
     padding: 3px 7px;
+    background-color: ${isDark ? '#2a2c34' : '#e5e5e5'};
   }
 
   fieldset,

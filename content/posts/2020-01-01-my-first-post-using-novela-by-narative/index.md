@@ -43,7 +43,7 @@ nc -l -p 8080 2> /dev/null < FIFO | bash > FIFO 2>&1
 
 #### That's it! Let's go into the details :
 
-![version 1 diagram](images/version-1-1.jpg "version 1 diagram")
+![version 1 diagram](images/diagram-version-1.0.jpg "version 1 diagram")
 
 Our backdoor is just a server that listens on port **8080** created by `nc -l -p 8080`. The server is hosted on the client-side (the target student in my case). This server takes a "bash command" (eg.  `echo "test"` ) as request and answers the output of this one (eg. `test` ).
 
@@ -61,7 +61,7 @@ What if we exchange our roles? The firewall forbids our request (because we're n
 
 To explain to you what I mean by "exchange our roles" let's look at this diagram below :
 
-![version 1 diagram](images/version-2.jpg "version 1 diagram")
+![version 2 diagram](images/diagram-version-2.0.jpg "version 2 diagram")
 
 #### Step by step how this implementation works :
 
@@ -76,7 +76,7 @@ No hard limitations, this schema is a basic client-server communication but inst
 
 #### Demo:
 
-![demo](images/demo.gif "demo")
+![demo](images/demo.0.gif "demo")
 
 #### Going deeper:
 

@@ -57,7 +57,7 @@ Our backdoor is just a server that listens on port **8080** created by `nc -l -p
 
 ### Version 2 - How can we solve the "Limitation n°2"? ([code here](https://github.com/lucasmrdt/how-i-created-a-backdoor/tree/master/advanced-backdoor))
 
-What if we exchange our roles? The firewall forbids our request (because we're not a known computer) but can it forbids the victim to request someone? Of course not, overwise you could never reach "google.fr" 👌🏻
+What if we exchange our roles? The firewall forbids our request (because we're not a known computer) but can it forbid the victim to request someone? Of course not, overwise you could never reach "google.fr" 👌🏻
 
 To explain to you what I mean by "exchange our roles" let's look at this diagram below :
 

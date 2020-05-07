@@ -47,11 +47,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Novela by Narative',
-        short_name: 'Novela',
+        name: 'Lucas Marandat',
+        short_name: 'Lucas',
         start_url: '/',
-        background_color: '#fff',
-        theme_color: '#fff',
+        background_color: '#fafafa',
+        theme_color: '#fafafa',
         display: 'standalone',
         icon: 'src/assets/favicon.png',
       },
@@ -103,17 +103,6 @@ module.exports = {
       resolve: 'gatsby-plugin-react-helmet-canonical-urls',
       options: {
         siteUrl,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Lucas Marandat',
-        short_name: 'Lucas',
-        start_url: '/',
-        background_color: '#fafafa',
-        theme_color: '#7c7c7c',
-        display: 'standalone',
       },
     },
     {

@@ -95,3 +95,5 @@ No hard limitations, this schema is a basic client-server communication but inst
 - Implement a [Zero Trust Architecture](https://www.paloaltonetworks.com/cyberpedia/what-is-a-zero-trust-architecture)
 
 ## 📦 Source code [here](https://github.com/lucasmrdt/how-i-created-a-backdoor)
+
+## ✍🏻 Something wrong or a suggestion? Suggest a change [here](https://github.com/lucasmrdt/personal-blog/blob/master/content/posts/2020-04-30-how-i-ve-created-a-backdoor/index.md)

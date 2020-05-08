@@ -145,4 +145,10 @@ export const globalStyles = (isDark: boolean) => css`
   img.Image__Zoom ~ div {
     background: transparent !important;
   }
+
+  .katex-display {
+    overflow-x: scroll;
+    padding: 20px 10px;
+    margin: 0;
+  }
 `;

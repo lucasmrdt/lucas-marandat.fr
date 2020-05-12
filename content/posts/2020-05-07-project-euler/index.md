@@ -4,6 +4,7 @@ author: Lucas Marandat
 date: 2020-05-07T00:00:00.000Z
 excerpt: This all my submissions and explanations
   to solve challenging programming problems.
+tag: project
 hero: images/hero.png
 ---
 

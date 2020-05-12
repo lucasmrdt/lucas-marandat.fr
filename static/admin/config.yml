@@ -36,6 +36,7 @@ collections:
           dateFormat: 'YYYY-MM-DD',
           timeFormat: false,
         }
+      - {label: 'Tag', name: 'tag', widget: 'string', required: false}
       - {label: 'Excerpt', name: 'excerpt', widget: 'string', required: false}
       - {label: 'Hero', name: 'hero', widget: 'image'}
       - {label: 'Body', name: 'body', widget: 'markdown'}

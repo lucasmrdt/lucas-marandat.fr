@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
+import {graphql} from 'gatsby';
 import styled from '@emotion/styled';
 
 import Section from '@components/Section';
@@ -8,29 +8,15 @@ import mediaqueries from '@styles/media';
 
 import {GridLayoutContext} from '@theme/sections/articles/Articles.List.Context';
 
-const authorQuery = graphql`
-  {
-    site: allSite {
-      edges {
-        node {
-          siteMetadata {
-            hero {
-              heading
-              maxWidth
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+interface Props {
+  title: string;
+}
 
-const ArticlesHero: React.FC = () => {
+const ArticlesHero: React.FC<Props> = ({title}) => {
   const {gridLayout = 'tiles', hasSetGridLayout, setGridLayout} = useContext(
     GridLayoutContext,
   );
 
-  const results = useStaticQuery(authorQuery);
   const tilesIsActive = hasSetGridLayout && gridLayout === 'tiles';
 
   return (

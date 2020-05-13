@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "dev": "gatsby develop",
     "clean": "gatsby clean",
     "proxy": "netlify-cms-proxy-server"
@@ -12,7 +12,7 @@
   "dependencies": {
     "@emotion/styled": "10.0.27",
     "@narative/gatsby-theme-novela": "git+https://github.com/lucasmrdt/gatsby-theme-novela.git#e1d07db",
-    "gatsby": "2.21.16",
+    "gatsby": "2.21.28",
     "gatsby-plugin-google-analytics": "2.3.1",
     "gatsby-plugin-manifest": "2.4.2",
     "gatsby-plugin-netlify-cms": "^4.1.40",

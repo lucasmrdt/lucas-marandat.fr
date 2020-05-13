@@ -378,7 +378,7 @@ def karatsuba(x, y):
 
 ### Demo
 
-<iframe height="400px" width="100%" src="https://repl.it/@lucasmrdt/karatsuba-algorithm?lite=true&outputonly=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="400px" width="100%" src="https://repl.it/@lucasmrdt/karatsuba-algorithm?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 </details>
 

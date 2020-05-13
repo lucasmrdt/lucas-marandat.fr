@@ -4,7 +4,7 @@ author: Lucas Marandat
 date: 2020-04-30T00:00:00.000Z
 excerpt: By explaining how I've created a basic backdoor, you'll understand how
   they work and how to protect yourself.
-tag: book
+tag: project
 hero: images/hero.png
 ---
 

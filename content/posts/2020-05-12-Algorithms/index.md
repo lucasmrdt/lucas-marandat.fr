@@ -384,6 +384,6 @@ def karatsuba(x, y):
 
 ## 📚 Resources
 
-- [Course (free)](https://www.coursera.org/learn/algorithms-divide-conquer#syllabus)
+- [Stanford course (free)](https://www.coursera.org/learn/algorithms-divide-conquer#syllabus)
 
 ## ✍🏻 Something wrong or a suggestion? Suggest a change [here](https://github.com/lucasmrdt/personal-blog/blob/master/content/posts/2020-05-12-Algorithms/index.md)

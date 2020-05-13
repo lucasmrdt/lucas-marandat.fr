@@ -9,7 +9,7 @@ hero: images/hero.1.png
 
 ## 🚀 Introduction
 
-I've followed the Stanford algorithm course given by **Tim Roughgarden** on [Coursera](https://www.coursera.org/) named _"Divide and Conquer, Sorting and Searching, and Randomized Algorithms"_ ([here](https://www.coursera.org/learn/algorithms-divide-conquer#syllabus)). On this post, you'll see _all my algorithms implementations_ linked to the course.
+I've followed the Stanford algorithm course given by **Tim Roughgarden** on [Coursera](https://www.coursera.org/) named _"Divide and Conquer, Sorting and Searching, and Randomized Algorithms"_ ([here](https://www.coursera.org/learn/algorithms-divide-conquer#syllabus)). On this post, you'll see **all my algorithms implementations** linked to the course.
 
 ## 🧩 Algorithms
 
@@ -376,9 +376,253 @@ def karatsuba(x, y):
   return add(pow10(z0, 2*m), pow10(z2, m), z1)
 ```
 
-### Demo
+### Demo ([here](https://repl.it/@lucasmrdt/karatsuba-algorithm))
 
 <iframe height="400px" width="100%" src="https://repl.it/@lucasmrdt/karatsuba-algorithm?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+</details>
+
+<details>
+<summary>
+<b>Sorting algorithms</b>
+</summary>
+
+<br />
+
+To make sure I've **understood sorting algorithms**, I've decided to implement them. To begin with, let's write a useful function named `swap_element` which allows us to **swap 2 elements** of an array at any index:
+
+<details>
+<summary>
+<i>swap_element(elements, i, j)</i>
+</summary>
+
+<br />
+
+This function will be used to **swap elements** of **array** at **any** index.
+
+```python
+def swap_element(elements, i, j):
+  """Swap elements.
+
+  Args:
+    elements (list): array
+    i (int): index 1
+    j (int): index 2
+
+  Returns:
+    None
+
+  Example:
+    >>> a = [1, 2, 3]
+    >>> swap_element(a, 0, 1)
+    >>> a
+    [2, 1, 3]
+  """
+  tmp = elements[i]
+  elements[i] = elements[j]
+  elements[j] = tmp
+```
+
+</details>
+
+### Bubble sort
+
+![bubble sort demo](https://upload.wikimedia.org/wikipedia/commons/c/c8/Bubble-sort-example-300px.gif)
+
+_source [Wikipedia](https://commons.wikimedia.org/wiki/File:Bubble-sort-example-300px.gif)_
+
+We **iterate** in the array from the beginning to the end **until the array is sorted**. Each time we found an element at index $i$ **lower than** the element at index $i - 1$ we **swap them**.
+
+```python
+def bubble_sort(numbers):
+  """Sort numbers array using bubble sort algorithm.
+
+  Args:
+    numbers (int[]): number list
+
+  Returns:
+    int[]: sorted list
+
+  Example:
+    >>> bubble_sort([6, 5, 4, 3, 2, 1])
+    [1, 2, 3, 4, 5, 6]
+  """
+  sorted_array = numbers[:]
+  is_sorted = False
+  while not is_sorted:
+    i = 1
+    is_sorted = True
+    while i < len(sorted_array):
+      if sorted_array[i-1] > sorted_array[i]:
+        swap_element(sorted_array, i-1, i)
+        is_sorted = False
+      i += 1
+  return sorted_array
+```
+
+### Insertion sort
+
+![insertion sort demo](https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)
+
+_source [Wikipedia](https://commons.wikimedia.org/wiki/File:Insertion-sort-example.gif)_
+
+Like when you **sort your card with your hand**: we take an element, then we **insert** it into the sorted part at the right place.
+
+```python
+def insertion_sort(numbers):
+  """Sort numbers array using insertion sort algorithm.
+
+  Args:
+    numbers (int[]): number list
+
+  Returns:
+    int[]: sorted list
+
+  Example:
+    >>> insertion_sort([6, 5, 4, 3, 2, 1])
+    [1, 2, 3, 4, 5, 6]
+  """
+  sorted_array = numbers[:]
+  i = 1
+  while i < len(sorted_array):
+    j = i
+    while j > 0 and sorted_array[j-1] > sorted_array[j]:
+      swap_element(sorted_array, j-1, j)
+      j -= 1
+    i += 1
+  return sorted_array
+```
+
+### Selection sort
+
+![selection sort demo](https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif)
+
+_source [Wikipedia](https://commons.wikimedia.org/wiki/File:Selection-Sort-Animation.gif)_
+
+We **iterate in the array** until it's sorted (like the bubble sort does). But here, **at each iteration**, we're **searching the new minimum value** and **append it to the end** of the sorted array.
+
+```python
+def selection_sort(numbers):
+  """Sort numbers array using selection sort algorithm.
+
+  Args:
+    numbers (int[]): number list
+
+  Returns:
+    int[]: sorted list
+
+  Example:
+    >>> selection_sort([6, 5, 4, 3, 2, 1])
+    [1, 2, 3, 4, 5, 6]
+  """
+  MAX = float('inf')
+  sorted_array = numbers[:]
+  i = 0
+  while i < len(sorted_array):
+    min_value = MAX
+    min_index = -1
+    j = i
+    while j < len(sorted_array):
+      if sorted_array[j] < min_value:
+        min_value = sorted_array[j]
+        min_index = j
+      j += 1
+    swap_element(sorted_array, i, min_index)
+    i += 1
+  return sorted_array
+```
+
+### Merge sort
+
+![merge sort demo](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
+
+_source [Wikipedia](https://commons.wikimedia.org/wiki/File:Merge-sort-example-300px.gif)_
+
+We **split recursively** the array into **two equal parts**, then we **merge** each part in an ordered way.
+
+```python
+def merge_sort(numbers):
+  """Sort numbers array using merge sort algorithm.
+
+  Args:
+    numbers (int[]): number list
+
+  Returns:
+    int[]: sorted list
+
+  Example:
+    >>> merge_sort([6, 5, 4, 3, 2, 1])
+    [1, 2, 3, 4, 5, 6]
+  """
+  if len(numbers) <= 1:
+    return numbers
+
+  m = math.floor(len(numbers) / 2)
+  left = merge_sort(numbers[:m])
+  right = merge_sort(numbers[m:])
+  sorted_array = []
+  while left and right:
+    if left[0] < right[0]:
+      sorted_array.append(left.pop(0))
+    else:
+      sorted_array.append(right.pop(0))
+  sorted_array += left + right # add remainder
+  return sorted_array
+```
+
+### Quick sort
+
+![quick sort demo](https://upload.wikimedia.org/wikipedia/commons/9/9c/Quicksort-example.gif)
+
+_source [Wikipedia](https://commons.wikimedia.org/wiki/File:Quicksort-example.gif)_
+
+Like merge sort, we **split** the array into **two parts**. But here, the split is made **by a pivot** (the **left part** has all its values **lower than** the pivot and the **right** one has all its values **greater than** the pivot). Then we **merge recursively** the two parts.
+
+```python
+def quick_sort(numbers):
+  """Sort numbers array using quick sort algorithm.
+
+  Args:
+    numbers (int[]): number list
+
+  Returns:
+    int[]: sorted list
+
+  Example:
+    >>> quick_sort([6, 5, 4, 3, 2, 1])
+    [1, 2, 3, 4, 5, 6]
+  """
+  if len(numbers) <= 1:
+    return numbers
+
+  m = math.floor(len(numbers)/2)
+  pivot = numbers.pop(m)
+  left = []
+  right = []
+
+  for nb in numbers:
+    if nb <= pivot:
+      left.append(nb)
+    else:
+      right.append(nb)
+  left = quick_sort(left)
+  right = quick_sort(right)
+  return left + [pivot] + right
+```
+
+### Comparison (for 1499 items made on [repl.it](https://repl.it/@lucasmrdt/sort-algorithms))
+
+|                | 😢 worst | 🤨 average | 😍 best |
+| :------------: | :------: | :--------: | :-----: |
+|  Bubble sort   |  1.921s  |   1.434s   | 0.001s  |
+| Selection sort |  0.500s  |   0.595s   | 0.513s  |
+| Insertion sort |  1.117s  |   0.531s   | 0.001s  |
+|   Merge sort   |  0.007s  |   0.011s   | 0.007s  |
+|   Quick sort   |  0.005s  |   0.006s   | 0.005s  |
+
+### Demo ([here](https://repl.it/@lucasmrdt/sort-algorithms))
+
+<iframe height="400px" width="100%" src="https://repl.it/@lucasmrdt/sort-algorithms?lite=true&outputonly=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 </details>
 

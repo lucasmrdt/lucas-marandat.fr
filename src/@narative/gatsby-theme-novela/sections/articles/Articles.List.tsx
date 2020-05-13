@@ -96,8 +96,6 @@ const ListItem: React.FC<ArticlesListItemProps> = ({article, narrow}) => {
     Object.keys(imageSource).length !== 0 &&
     imageSource.constructor === Object;
 
-  console.log(article);
-
   return (
     <ArticleLink to={article.slug} data-a11y="false">
       <Item gridLayout={gridLayout}>

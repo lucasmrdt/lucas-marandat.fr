@@ -19,12 +19,19 @@ module.exports = {
       maxWidth: 652,
     },
     social: [{
+        name: 'email',
+        url: 'mailto:contact@lucas-marandat.fr'
+      }, {
         name: 'linkedin',
         url: 'https://www.linkedin.com/in/lucasmrdt/',
       },
       {
         name: 'github',
         url: 'https://github.com/lucasmrdt',
+      },
+      {
+        name: 'replit',
+        url: 'https://repl.it/@lucasmrdt',
       },
       {
         name: 'hackerrank',

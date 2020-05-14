@@ -1,8 +1,12 @@
 name: Lucas Marandat
 bio: 3rd year IT student @Epitech, loving AI 🤖
 featured: true
-avatar: avatars/me.jpeg
+avatar: avatars/me.jpg
 social:
+  - url: mailto:contact@lucas-marandat.fr
+    name: email
   - url: https://www.linkedin.com/in/lucasmrdt/
   - url: https://github.com/lucasmrdt
+  - url: https://repl.it/@lucasmrdt
+    name: replit
   - url: https://www.hackerrank.com/lucas_mrdt

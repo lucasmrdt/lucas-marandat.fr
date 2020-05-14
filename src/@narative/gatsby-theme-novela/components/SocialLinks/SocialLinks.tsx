@@ -16,6 +16,8 @@ const icons = {
   behance: Icons.Behance,
   dribbble: Icons.Dribbble,
   hackerrank: Icons.HackerRank,
+  email: Icons.Email,
+  replit: Icons.Replit,
   linkedin: Icons.LinkedIn,
   twitter: Icons.Twitter,
   facebook: Icons.Facebook,
@@ -38,6 +40,7 @@ const getHostname = url => {
 
 const SocialLinks: React.FC<SocialLinksProps> = ({links, fill = '#73737D'}) => {
   if (!links) return null;
+  console.log(links);
 
   return (
     <>

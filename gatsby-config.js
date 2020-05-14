@@ -20,7 +20,7 @@ module.exports = {
     },
     social: [{
         name: 'email',
-        url: 'mailto:contact@lucas-marandat.fr'
+        url: 'mailto:lucas.marandat@gmail.com'
       }, {
         name: 'linkedin',
         url: 'https://www.linkedin.com/in/lucasmrdt/',

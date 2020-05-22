@@ -97,7 +97,7 @@ const SocialIconContainer = styled.a`
     margin-left: 0;
   }
 
-  &:last-child {
+  &:last-of-type {
     margin-right: 0;
   }
 

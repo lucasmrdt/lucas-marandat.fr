@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import ReactTooltip from 'react-tooltip';
 
 import Icons from '@icons';
 import mediaqueries from '@styles/media';
+
+const capitalize = (str: string) => str.replace(/^[a-z]/, c => c.toUpperCase());
 
 interface SocialLinksProps {
   links: {
@@ -15,8 +18,9 @@ interface SocialLinksProps {
 const icons = {
   behance: Icons.Behance,
   dribbble: Icons.Dribbble,
-  hackerrank: Icons.HackerRank,
+  hackerRank: Icons.HackerRank,
   email: Icons.Email,
+  codeSandbox: Icons.CodeSandbox,
   replit: Icons.Replit,
   linkedin: Icons.LinkedIn,
   twitter: Icons.Twitter,
@@ -40,7 +44,6 @@ const getHostname = url => {
 
 const SocialLinks: React.FC<SocialLinksProps> = ({links, fill = '#73737D'}) => {
   if (!links) return null;
-  console.log(links);
 
   return (
     <>
@@ -54,6 +57,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({links, fill = '#73737D'}) => {
         }
         return (
           <SocialIconContainer
+            data-tip={capitalize(option.name)}
             key={option.url}
             target="_blank"
             rel="noopener nofollow"
@@ -65,6 +69,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({links, fill = '#73737D'}) => {
           </SocialIconContainer>
         );
       })}
+      <ReactTooltip place={'bottom'} backgroundColor={fill} effect={'solid'} />
     </>
   );
 };

@@ -32,9 +32,11 @@ module.exports = {
       {
         name: 'replit',
         url: 'https://repl.it/@lucasmrdt',
-      },
-      {
-        name: 'hackerrank',
+      }, {
+        url: 'https://codesandbox.io/u/lucasmrdt',
+        name: 'codeSandbox',
+      }, {
+        name: 'hackerRank',
         url: 'https://www.hackerrank.com/lucas_mrdt',
       }
     ],

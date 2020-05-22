@@ -16,6 +16,7 @@ import Paypal from '@theme/icons/social/Paypal.Icon';
 import HackerRank from './social/HackerRank.icon';
 import Email from './social/Email.icon';
 import Replit from './social/Replit.icon';
+import CodeSandbox from './social/CodeSandbox.icon';
 import DigitalOcean from '@theme/icons/social/DigitalOcean.Icon';
 import TripAdvisor from '@theme/icons/social/TripAdvisor.Icon';
 
@@ -49,6 +50,7 @@ export default {
   HackerRank,
   Email,
   Replit,
+  CodeSandbox,
   TripAdvisor,
 
   ChevronLeft,

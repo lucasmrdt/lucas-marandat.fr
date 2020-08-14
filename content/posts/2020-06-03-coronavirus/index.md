@@ -1,5 +1,5 @@
 ---
-title: Coronavirus tracker application + firebase + onesignal
+title: Coronavirus Tracker App (RN + Firebase + Onesignal)
 author: Lucas Marandat
 date: 2020-06-03T00:00:00.000Z
 excerpt: This is how I built my coronavirus tracker application from scratch with firebase and onesignal.
@@ -103,6 +103,8 @@ This function allows you to schedule as a [cron task](https://en.wikipedia.org/w
 
 ### Notification service implementation
 
-We want to be notified when new data is
+We want to be notified when new data is ...
+
+**🚧 WIP**
 
 ## ✍🏻 Something wrong or a suggestion? Suggest a change [here](https://github.com/lucasmrdt/personal-blog/blob/master/content/posts/2020-06-03-coronavirus/index.md)

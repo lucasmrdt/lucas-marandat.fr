@@ -11,14 +11,7 @@ hero: images/hero.1.png
 
 I've followed the Stanford algorithm course given by **Tim Roughgarden** on [Coursera](https://www.coursera.org/) named _"Divide and Conquer, Sorting and Searching, and Randomized Algorithms"_ ([here](https://www.coursera.org/learn/algorithms-divide-conquer#syllabus)). On this post, you'll see **all my algorithms implementations** linked to the course.
 
-## 🧩 Algorithms
-
-<details>
-<summary>
-<b>Karatsuba Multiplication</b>
-</summary>
-
-<br />
+## 🧮 Karatsuba Multiplication
 
 ### Explanation
 
@@ -380,14 +373,9 @@ def karatsuba(x, y):
 
 <iframe height="400px" width="100%" src="https://repl.it/@lucasmrdt/karatsuba-algorithm?lite=1&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-</details>
-
-<details>
-<summary>
-<b>Sorting algorithms</b>
-</summary>
-
 <br />
+
+## 📊 Sorting algorithms
 
 To make sure I've **understood sorting algorithms**, I've decided to implement them. To begin with, let's write a useful function named `swap_element` which allows us to **swap 2 elements** of an array at any index:
 
@@ -623,8 +611,6 @@ def quick_sort(numbers):
 ### Demo ([here](https://repl.it/@lucasmrdt/sort-algorithms))
 
 <iframe height="400px" width="100%" src="https://repl.it/@lucasmrdt/sort-algorithms?lite=true&outputonly=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
-</details>
 
 ## 📚 Resources
 

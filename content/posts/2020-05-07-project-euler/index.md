@@ -1,5 +1,5 @@
 ---
-title: Project Euler (5/254)
+title: Project Euler (6/254)
 author: Lucas Marandat
 date: 2020-05-07T00:00:00.000Z
 excerpt: This all my submissions and explanations
@@ -27,7 +27,7 @@ I've learned coding by solving algorithmic problems and I always like to solve t
 I've not done all of them, refer to the title to see my progress `.../254`.
 For many of them, I helped myself from the internet to improve my solution and reduce complexity. I'm using this challenge to enhance my mathematical skills.
 
-<details>
+<details open>
 <summary>1️⃣ Multiples of 3 and 5</summary>
 <br />
 
@@ -117,7 +117,7 @@ $$
 
 </details>
 
-<details>
+<details open>
 <summary>2️⃣ Even Fibonnaci numbers</summary>
 <br />
 
@@ -190,7 +190,7 @@ Then when $f(x)$ return $1$ we add the current fibonacci value to the fibonacci 
 
 </details>
 
-<details>
+<details open>
 <summary>3️⃣ Largest prime factor</summary>
 <br />
 
@@ -273,7 +273,7 @@ So the final transformed number $x_{\text{end}}$ is the largest prime factor of 
 
 </details>
 
-<details>
+<details open>
 <summary>4️⃣ Largest palindrome product</summary>
 <br />
 
@@ -368,7 +368,7 @@ Then, let's $a \in \{x\in S : 11|x\}$ and $b \in S$, we loop for each value of $
 
 </details>
 
-<details>
+<details open>
 <summary>5️⃣ Smallest multiple</summary>
 <br />
 
@@ -380,9 +380,9 @@ Then, let's $a \in \{x\in S : 11|x\}$ and $b \in S$, we loop for each value of $
 
 #### My solution ([Run on repl.it](https://repl.it/@lucasmrdt/PE5-or-Smallest-multiple))
 
-<details>
-<summary>Version 1 - Brute force 😱</summary>
-<br />
+##### Version 1 - Brute force 😱
+
+Complexity: Worst case $O(n!)$
 
 ```cpp
 #include <iostream>
@@ -418,13 +418,169 @@ int main() {
 }
 ```
 
-#### Explanation
-
 We just increment $nb$ until we get $\forall x \in [1,n], \; x|nb$.
 
-**WIP 🚧**
+##### Version 2 - Better with mathematics 🧠
+
+Complexity: $O(n*log(n))$
+
+```cpp
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+using ll = long long;
+
+long gcd(long a, long b) {
+  if (a < b) {
+    return gcd(b, a);
+  }
+
+  long mod = a % b;
+  if (mod == 0) {
+    return b;
+  }
+  return gcd(b, mod);
+}
+
+void solve() {
+  long n;
+  cin >> n;
+
+  long lcm = 1;
+  for (int i = 2; i <= n; ++i) {
+    lcm = lcm * i / gcd(lcm, i);
+  }
+  cout << lcm << endl;
+}
+
+int main() {
+  int t;
+  cin >> t;
+  for (int i = 0; i < t; i++) {
+    solve();
+  }
+  return 0;
+}
+```
+
+#### Explanation
+
+Current problem ask us the $lcm(1,\dots,n)$ ([least commun multiple](https://en.wikipedia.org/wiki/Least_common_multiple)).
+
+We can write:
+
+$$
+lcm(1,\dots,n) = lcm(lcm(lcm(1,2),\dots),n)
+$$
+
+But as we know the $lcm(a,b) = ab/gcd(a,b)$. We can compute recursively $lcm(1,\dots,n)$ by using the $gcd$ ([greatest common divisor](https://en.wikipedia.org/wiki/Greatest_common_divisor)).
+
+**Done 🎉**
 
 </details>
+
+<details open>
+<summary>6️⃣ Sum square difference</summary>
+<br />
+
+#### Instruction ([here](https://www.hackerrank.com/contests/projecteuler/challenges/euler006/problem))
+
+> The sum of the squares of the first ten natural numbers is, $1^2+2^2+\dots+10^2=385$. The square of the sum of the first ten natural numbers is, $(1+2+\dots+10)^2=55^2=3025$. Hence the absolute difference between the sum of the squares of the first ten natural numbers and the square of the sum is $3025-385=2640$.
+
+Find the absolute difference between the sum of the squares of the first $N$ natural numbers and the square of the sum.
+
+#### My solution ([Run on repl.it](https://repl.it/@lucasmrdt/PE6-or-Sum-square-difference))
+
+<br />
+
+Complexity: $O(1)$
+
+```cpp
+#include <iostream>
+#include <cstring>
+#include <math.h>
+#include <iostream>
+#include <cstring>
+#include <math.h>
+
+using namespace std;
+using ll = long long;
+
+void solve() {
+  ll n;
+  cin >> n;
+
+  cout << n*(3*static_cast<ll>(pow(n,3)) + 2*static_cast<ll>(pow(n,2)) - 3*n - 2) / 12 << endl;
+}
+
+int main() {
+  int t;
+  cin >> t;
+  for (int i = 0; i < t; i++) {
+    solve();
+  }
+  return 0;
+}
+```
+
+#### Explanation
+
+Let's write $f_1(n) = (\sum_{i=1}^ni)^2 = \frac{n^2(n+1)^2}{4} = \frac{n^2(n^2+2n+1)}{4} = \frac{n(n^3+2n^2+n)}{4}$
+
+Proof:
+
+$$
+\begin{array}{c}
+\sum_{i=1}^{n} &=& 1+2+\dots+n \\
+\sum_{i=1}^{n} &=& n+(n-1)+\dots+1 \\
+2\sum_{i=1}^{n} &=& \underbrace{(n+1)+\dots+(n+1)}_{n\text{ times}} \\
+2\sum_{i=1}^{n} &=& n(n+1) \\
+\sum_{i=1}^{n} &=& \frac{n(n+1)}{2} \\
+(\sum_{i=1}^{n})^2 &=& \frac{n^2(n+1)^2}{4} \\
+\end{array}
+$$
+
+<br />
+
+Let's now write $f_2(n) = \sum_{i=1}^ni^2 = \frac{2n^3+3n^2+n}{6} = \frac{n(2n^2+3n+1)}{6}$
+
+Proof [by telescoping sum](https://en.wikipedia.org/wiki/Telescoping_series):
+
+$$
+\begin{array}{c}
+\sum_{i=1}^{n}(i+1)^3-i^3&=&(\cancel{2^3}-1^3) + (\cancel{3^3}-\cancel{2^3})+\dots+((n+1)^3-\cancel{n^3}) \\
+&=&(n+1)^3-1 \\
+\\
+&\text{We can compute:}& \\
+(n+1)^3 &=& (n+1)(n+1)^2 \\
+&=& (n+1)(n^2+2n+1) \\
+&=& n^3+3n^2+3n+1 \\
+\\
+&\text{So we have:}& \\
+\sum_{i=1}^{n}(i+1)^3-i^3&=&n^3+3n^2+3n\\
+\sum_{i=1}^{n}\cancel{i^3}+3i^2+3i+1-\cancel{i^3}&=&n^3+3n^2+3n\\
+3\sum_{i=1}^{n}i^2+3\sum_{i=1}^{n}i + \sum_{i=1}^{n}1&=&n^3+3n^2+3n\\
+\\
+&\text{First:}& \\
+\sum_{i=1}^{n}i &=& \frac{n*(n+1)}{2} \\
+\sum_{i=1}^{n}i &=& \frac{n^2}{2}+\frac{n}{2} \\
+\\
+&\text{Second:}& \\
+\sum_{i=1}^{n}1 &=& n \\
+\\
+&\text{Finally:}& \\
+3\sum_{i=1}^{n}i^2&=&n^3+3n^2+3n-\frac{3n^2}{2}-\frac{3n}{2}-n\\
+3\sum_{i=1}^{n}i^2&=&\frac{2n^3+6n^2+6n-3n^2-3n-2n}{2}\\
+\sum_{i=1}^{n}i^2&=&\frac{2n^3+3n^2+n}{6}\\
+\end{array}
+$$
+
+We are searching $g(n) = (\sum_{i=1}^ni)^2 - \sum_{i=1}^ni^2 = f_1(n) - f_2(n)$.
+
+So $g(n) = \frac{n(3n^3+6n^2+3n-4n^2-6n-2)}{12} = \frac{n(3n^3+2n^2-3n-2)}{12}$
+
+**Done 🎉**
 
 </details>
 

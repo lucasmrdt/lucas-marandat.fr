@@ -2,7 +2,7 @@
 title: Timetable into Google calendar
 author: Lucas Marandat
 date: 2020-09-11T00:00:00.000Z
-excerpt: Quickly convert your student timetable into google calendar events..
+excerpt: Quickly convert your student timetable into google calendar events.
 tag: github
 hero: images/hero.4.png
 ---

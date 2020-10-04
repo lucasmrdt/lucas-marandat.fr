@@ -4,7 +4,7 @@ author: Lucas Marandat
 date: 2020-09-03T00:00:00.000Z
 excerpt: Quickly generate memory flashcards to better learn and review knowledge.
 tag: github
-hero: images/hero.1.webp
+hero: images/hero.2.png
 ---
 
 # ⚠️ This is not an article, it's a project overview ([source code](https://github.com/lucasmrdt/questce-le-quizz)) 🔎

@@ -7,7 +7,7 @@ tag: github
 hero: images/hero.4.png
 ---
 
-# ⚠️ TEST This is not an article, it's a project overview ([source code](https://github.com/lucasmrdt/timetable-to-google-calendar)) 🔎
+# ⚠️ This is not an article, it's a project overview ([source code](https://github.com/lucasmrdt/timetable-to-google-calendar)) 🔎
 
 ---
 

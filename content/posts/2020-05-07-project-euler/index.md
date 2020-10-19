@@ -1,7 +1,7 @@
 ---
-title: Project Euler (6/254)
+title: Project Euler (8/254)
 author: Lucas Marandat
-date: 2020-05-07T00:00:00.000Z
+date: 2020-08-18T00:00:00.000Z
 excerpt: This all my submissions and explanations
   to solve challenging programming problems.
 tag: project
@@ -27,7 +27,7 @@ I've learned coding by solving algorithmic problems and I always like to solve t
 I've not done all of them, refer to the title to see my progress `.../254`.
 For many of them, I helped myself from the internet to improve my solution and reduce complexity. I'm using this challenge to enhance my mathematical skills.
 
-<details open>
+<details>
 <summary>1️⃣ Multiples of 3 and 5</summary>
 <br />
 
@@ -117,7 +117,7 @@ $$
 
 </details>
 
-<details open>
+<details>
 <summary>2️⃣ Even Fibonnaci numbers</summary>
 <br />
 
@@ -190,7 +190,7 @@ Then when $f(x)$ return $1$ we add the current fibonacci value to the fibonacci 
 
 </details>
 
-<details open>
+<details>
 <summary>3️⃣ Largest prime factor</summary>
 <br />
 
@@ -273,7 +273,7 @@ So the final transformed number $x_{\text{end}}$ is the largest prime factor of 
 
 </details>
 
-<details open>
+<details>
 <summary>4️⃣ Largest palindrome product</summary>
 <br />
 
@@ -368,7 +368,7 @@ Then, let's $a \in \{x\in S : 11|x\}$ and $b \in S$, we loop for each value of $
 
 </details>
 
-<details open>
+<details>
 <summary>5️⃣ Smallest multiple</summary>
 <br />
 
@@ -480,15 +480,15 @@ But as we know the $lcm(a,b) = ab/gcd(a,b)$. We can compute recursively $lcm(1,\
 
 </details>
 
-<details open>
+<details>
 <summary>6️⃣ Sum square difference</summary>
 <br />
 
 #### Instruction ([here](https://www.hackerrank.com/contests/projecteuler/challenges/euler006/problem))
 
 > The sum of the squares of the first ten natural numbers is, $1^2+2^2+\dots+10^2=385$. The square of the sum of the first ten natural numbers is, $(1+2+\dots+10)^2=55^2=3025$. Hence the absolute difference between the sum of the squares of the first ten natural numbers and the square of the sum is $3025-385=2640$.
-
-Find the absolute difference between the sum of the squares of the first $N$ natural numbers and the square of the sum.
+>
+> Find the absolute difference between the sum of the squares of the first $N$ natural numbers and the square of the sum.
 
 #### My solution ([Run on repl.it](https://repl.it/@lucasmrdt/PE6-or-Sum-square-difference))
 
@@ -579,6 +579,276 @@ $$
 We are searching $g(n) = (\sum_{i=1}^ni)^2 - \sum_{i=1}^ni^2 = f_1(n) - f_2(n)$.
 
 So $g(n) = \frac{n(3n^3+6n^2+3n-4n^2-6n-2)}{12} = \frac{n(3n^3+2n^2-3n-2)}{12}$
+
+**Done 🎉**
+
+</details>
+
+<details>
+<summary>7️⃣ 10001st primes</summary>
+<br />
+
+#### Instruction ([here](https://www.hackerrank.com/contests/projecteuler/challenges/euler007/problem))
+
+> By listing the first six prime numbers: $2,3,5,7,11$ and $13$, we can see that the $6^{th}$ prime is $13$.
+> What is the $N^{th}$ prime number?
+
+#### My solution ([Run on repl.it](https://repl.it/@lucasmrdt/PE7-or-10001st-prime)
+
+<br />
+
+Complexity: $O(n*m)$ with $n$ the $N^{th}$ wanted and $m$ the final prime number
+
+```cpp
+#include <iostream>
+#include <cstring>
+#include <math.h>
+#include <vector>
+
+using namespace std;
+using ll = long long;
+
+vector<ll> primes { 2, 3 };
+
+inline bool check_is_prime(ll nb) {
+  for (auto p : primes) {
+    if (nb % p == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void solve() {
+  int n;
+  cin >> n;
+
+  ll last_prime = primes.back();
+  for (auto nb = last_prime + 1; primes.size() < n; ++nb) {
+    if (check_is_prime(nb)) {
+      primes.push_back(nb);
+    }
+  }
+  cout << primes[n-1] << endl;
+}
+
+int main() {
+  int t;
+  cin >> t;
+  for (int i = 0; i < t; i++) {
+    solve();
+  }
+  return 0;
+}
+```
+
+#### Explanation
+
+The response is simple, we find all the prime numbers until we get N^{th} prime numbers. (We keep it into memory to avoid redundancy computations).
+
+#### Optimization
+
+[As we know](https://www.quora.com/Is-every-prime-number-other-than-2-and-3-of-the-form-6k%C2%B11-Is-this-a-proven-result-What-are-other-resources-about-it#:~:text=But%20these%20two%20are%20equivalent,the%20form%206k%C2%B11.) that all prime numbers (except $2$ and $3$) can be expressed as $p_k = 6k\pm1$, $\forall k \in \R$. So we can only increment the loop by $6$ and avoid unnecessary computations.
+
+**Done 🎉**
+
+</details>
+
+<details>
+<summary>8️⃣ Largest product in a series</summary>
+<br />
+
+#### Instruction ([here](https://www.hackerrank.com/contests/projecteuler/challenges/euler008/problem))
+
+> Find the greatest product of $K$ consecutive digits in the $N$ digit number.
+
+#### My solution ([Run on repl.it](https://repl.it/@lucasmrdt/PE8-or-Largest-product-in-a-series#main.cpp)
+
+<br />
+
+Complexity: $O(N*K)$
+
+```cpp
+#include <iostream>
+#include <cstring>
+#include <math.h>
+#include <algorithm>
+
+using namespace std;
+using ll = long long;
+
+#define CHAR_TO_INT(x) (x - '0')
+
+ll multiply_all_digits(string str) {
+  ll res = 1;
+  for (char c : str) {
+    res *= CHAR_TO_INT(c);
+  }
+  return res;
+}
+
+void solve() {
+  int n, k;
+  string number;
+  cin >> n >> k;
+  cin >> number;
+
+  ll max = 0;
+  for (int i = 0; i + k <= n; ++i) {
+    auto sub = number.substr(i, k);
+    auto res = multiply_all_digits(sub);
+    if (res > max) {
+      max = res;
+    }
+  }
+  cout << max << endl;
+}
+
+int main() {
+  int t;
+  cin >> t;
+  for (int i = 0; i < t; i++) {
+    solve();
+  }
+  return 0;
+}
+```
+
+#### Explanation
+
+We simply compute the product of each digit of each substring of $k$ digits in the number $n$ and save the maximum of them.
+
+#### Optimization
+
+We could avoid unnecessary multiplications for example if $n=3675356291$ and $k=5$. Possibilities are :
+
+- $a_1=\bold{\underline{3}}6753$
+- $a_2=6753\bold{\underline{5}}$
+- ...
+- $a_x=56291$
+
+We can quickly see that $a_2=a_1/3*5$. So by saving the last result we could avoid $k-1$ computations. And so have a global complexity of $O(N)$.
+
+**Done 🎉**
+
+</details>
+
+<details open>
+<summary>9️⃣ Special Pythagorean triplet</summary>
+<br />
+
+#### Instruction ([here](https://www.hackerrank.com/contests/projecteuler/challenges/euler009/problem))
+
+> A Pythagorean triplet is a set of three natural numbers, $a < b < c$, for which, $a^2+b^2=c^2$
+>
+> For example, $3^2+4^2=9+16=25=5^2$
+>
+> Given $N$, Check if there exists any Pythagorean triplet for which $a+b+c=N$
+> Find maximum possible value of among all such Pythagorean triplets, If there is no such Pythagorean triplet print $-1$.
+
+#### My solution ([Run on repl.it](https://repl.it/@lucasmrdt/PE8-or-Largest-product-in-a-series#main.cpp))
+
+<br />
+
+Complexity: $O()$
+
+```cpp
+
+```
+
+#### Explanation
+
+$$
+a^2+b^2=c^2 \newline
+\text{and} \newline
+a+b+c=N
+$$
+
+Let's isolate $c$ :
+
+$$
+\begin{array}{c}
+&& a+b+c=N \\
+&\iff& c = N-a-b
+\end{array}
+$$
+
+Let's isolate $b$ :
+
+$$
+\begin{array}{c}
+&& a^2+b^2=c^2 \\
+&\iff& a^2+2ab+b^2=c^2+2ab \\
+&\iff& (N-c)^2=c^2+2ab \\
+&\iff& 2ab=(N-c)^2-c^2 \\
+&\iff& 2ab=N^2-2Nc \\
+&\iff& b=\frac{N^2-2Nc}{2a} \\
+&\iff& b=N\frac{N}{2a}-N\frac{2c}{2a} \\
+\end{array}
+$$
+
+By replacing $b$ in $c$ we get :
+
+$$
+\begin{array}{c}
+&& c = N-a-b \\
+&\iff& c= N-a-N\frac{N}{2a}-N\frac{2c}{2a} \\
+&\iff& c+N\frac{2c}{2a}= N-a-N\frac{N}{2a} \\
+&\iff& \frac{2ac+2Nc}{2a}= N-a-N\frac{N}{2a} \\
+&\iff& 2ac+2Nc= 2a(N-a-N\frac{N}{2a}) \\
+&\iff& 2ac+2Nc= 2Na-2a^2-N^2 \\
+&\iff& 2ac= 2Na-2a^2-N^2-2Nc \\
+&\iff& c= \frac{2Na-2a^2-N^2-2Nc}{} \\
+&\iff& c= N(1-\frac{N-2c}{2a})-a \\
+\end{array}
+$$
+
+$$
+\begin{pmatrix}
+1 & 1 & -1 \\
+1 & 1 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b \\
+c \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\
+N \\
+\end{pmatrix}
+$$
+
+$$
+\begin{pmatrix}
+1 & 1 & -1 \\
+0 & 0 & 2 \\
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b \\
+c \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \\
+N \\
+\end{pmatrix}
+$$
+
+We simply compute the product of each digit of each substring of $k$ digits in the number $n$ and save the maximum of them.
+
+#### Optimization
+
+We could avoid unnecessary multiplications for example if $n=3675356291$ and $k=5$. Possibilities are :
+
+- $a_1=\bold{\underline{3}}6753$
+- $a_2=6753\bold{\underline{5}}$
+- ...
+- $a_x=56291$
+
+We can quickly see that $a_2=a_1/3*5$. Se by saving the last result we could avoid $k-1$ computations. And so have a global complexity of $O(N)$.
 
 **Done 🎉**
 

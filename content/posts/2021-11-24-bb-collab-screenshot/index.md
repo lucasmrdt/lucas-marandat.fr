@@ -1,8 +1,8 @@
 ---
 title: BB Collab Screenshot
 author: Lucas Marandat
-date: 2021-01-25
-tag: "22"
+date: 2021-01-25T00:00:00.000Z
+tag: github
 excerpt: Allow you to quickly screenshot the displayed course on BB Collab.
 hero: images/screenshot-2021-11-24-at-12.21.12.png
 ---

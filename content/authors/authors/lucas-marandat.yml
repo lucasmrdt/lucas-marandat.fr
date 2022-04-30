@@ -1,12 +1,11 @@
 name: Lucas Marandat
 bio: Currently in master’s year 1 (Computer Science, Decision Making, and Data)
-  at PSL-Dauphine. I work as a Fullstack developer in my spare time. Very
-  interested in AI research.
+  at PSL-Dauphine. In my spare time, I'm a full-stack developer. I'm passionate
+  about AI research.
 featured: true
 avatar: avatars/me.png
 social:
-  - url: mailto:lucas.marandat@gmail.com
-    name: email
+  - mailto:lucas.mrdt@gmail.com
   - url: https://www.linkedin.com/in/lucasmrdt/
     name: linkedin
   - url: https://github.com/lucasmrdt

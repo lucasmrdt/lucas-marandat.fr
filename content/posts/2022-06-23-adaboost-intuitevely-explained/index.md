@@ -1,7 +1,7 @@
 ---
-title: AdaBoost Intuitevely Explained
+title: AdaBoost intuitively explained
 author: Lucas Marandat
-date: 2022-06-23
+date: 2022-06-23T00:00:00.000Z
 tag: machine learning
 excerpt: Understand AdaBoost algorithm formulas from a loss function.
 hero: images/screenshot-2022-06-23-at-16.50.15.png

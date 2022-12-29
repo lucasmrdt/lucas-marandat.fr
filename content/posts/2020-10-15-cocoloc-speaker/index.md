@@ -2,9 +2,9 @@
 title: La Cocoloc Speaker
 author: Lucas Marandat
 date: 2020-10-15T00:00:00.000Z
-excerpt: Send us a voice message with messenger.
 tag: github
-hero: images/hero.0.png
+excerpt: Send us a voice message with messenger.
+hero: images/hero.0-copy.png
 ---
 
 # ⚠️ This is not an article, it's a project overview ([source code](https://github.com/lucasmrdt/timetable-to-google-calendar)) 🔎
